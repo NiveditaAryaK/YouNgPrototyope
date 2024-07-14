@@ -62,7 +62,7 @@ class ChatbotPage extends StatelessWidget {
               child: SizedBox(
                 width: 309,
                 child: Text(
-                  'ebleheeleefmfefeefkemfefe',
+                  '.....',
                   style: TextStyle(
                     color: Color(0xFF2C0A2D),
                     fontSize: 15,
@@ -79,7 +79,7 @@ class ChatbotPage extends StatelessWidget {
               child: SizedBox(
                 width: 262,
                 child: Text(
-                  'Evening eligant lady look, for a date',
+                  'Evening elegant model for a date',
                   textAlign: TextAlign.right,
                   style: TextStyle(
                     color: Color(0xFFF7F4EF),

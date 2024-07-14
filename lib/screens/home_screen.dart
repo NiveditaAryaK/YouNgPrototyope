@@ -1,107 +1,94 @@
-/*
-// lib/screens/home_screen.dart
 import 'package:flutter/material.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-
-class HomeScreen extends StatelessWidget {
+import 'wishlist.dart';
+class HomeScreen extends StatefulWidget {
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('YouNg'),
-      ),
-      body: Column(
+      body: Stack(
         children: [
-          _SearchBar(),
-          Expanded(
-            child: _ImageGridView(),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class _SearchBar extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 40,
-      margin: EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: Colors.deepPurple[600],
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: Row(
-          children: [
-            Icon(Icons.search, color: Colors.white),
-            SizedBox(width: 8),
-            Expanded(
-              child: TextField(
-                decoration: InputDecoration(
-                  border: InputBorder.none,
-                  hintText: 'Search',
-                  hintStyle: TextStyle(color: Colors.white),
+          Align(
+            alignment: Alignment.topCenter,
+            child: Container(
+              width: 400,
+              height: 60,
+              decoration: BoxDecoration(
+                color: Color(0xFF2D0B2D),
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Container(
+                width: 370,
+                height: 40,
+                margin: EdgeInsets.all(10),
+                decoration: ShapeDecoration(
+                  color: Color(0xFF3D1B3E),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
                 ),
-                style: TextStyle(color: Colors.white),
+                child: Row(
+                  children: [
+                    SizedBox(width: 16),
+                    Icon(Icons.search, color: Colors.white),
+                    SizedBox(width: 8),
+                    Expanded(
+                      child: Text(
+                        'Search',
+                        style: TextStyle(color: Colors.white, fontSize: 18),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class _ImageGridView extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    List<StaggeredTile> _staggeredTiles = [
-      StaggeredTile.count(2, 2),
-      StaggeredTile.count(2, 1),
-      StaggeredTile.count(1, 2),
-      StaggeredTile.count(1, 1),
-      StaggeredTile.count(2, 2),
-    ];
-
-    List<Widget> _tiles = [
-      Image.asset('assets/Model in Cool Clothes (1) 1.png'),
-      Image.asset('assets/Soft girl trend 1.png'),
-      Image.asset('assets/Pinterest Image (2) 1.png'),
-      Image.asset('assets/Pinterest Image (1) 1 (1).png'),
-      Image.asset('assets/Indie School Outfits 2022 1.png'),
-    ];
-
-    return StaggeredGridView.count(
-      crossAxisCount: 4,
-      staggeredTiles: _staggeredTiles,
-      children: _tiles,
-      mainAxisSpacing: 4.0,
-      crossAxisSpacing: 4.0,
-      padding: const EdgeInsets.all(4.0),
-    );
-  }
-}*/
-
-// lib/screens/home_screen.dart
-import 'package:flutter/material.dart';
-
-class HomeScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Pinterest Clone'),
-      ),
-      body: Center(
-        child: ElevatedButton(
-          child: Text('Go to Chatbot Page'),
-          onPressed: () {
-            Navigator.pushNamed(context, '/chatbot');
-          },
-        ),
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              margin: EdgeInsets.only(bottom: 20),
+              child: Container(
+                width: 298,
+                height: 62,
+                decoration: ShapeDecoration(
+                  color: Color(0xFF2C0A2D),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(60),
+                  ),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Container(
+                      width: 40,
+                      height: 40,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        shape: BoxShape.circle,
+                      ),
+                      child: Center(
+                        child: Icon(Icons.home, color: Color(0xFF2D0B2D), size: 25),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => WishlistScreen()),
+                        );
+                      },
+                      child: Icon(Icons.favorite, color: Colors.white),
+                    ),
+                    Icon(Icons.qr_code_scanner, color: Colors.white),
+                    Icon(Icons.person, color: Colors.white),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
